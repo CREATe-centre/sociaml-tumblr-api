@@ -1,0 +1,37 @@
+# OASIS_START
+# DO NOT EDIT (digest: e44ce6828f593f199f9d3990937e328f)
+# Ignore VCS directories, you can use the same kind of rule outside
+# OASIS_START/STOP if you want to exclude directories that contains
+# useless stuff for the build process
+<**/.svn>: -traverse
+<**/.svn>: not_hygienic
+".bzr": -traverse
+".bzr": not_hygienic
+".hg": -traverse
+".hg": not_hygienic
+".git": -traverse
+".git": not_hygienic
+"_darcs": -traverse
+"_darcs": not_hygienic
+# Library tumblr
+"src/tumblr.cmxs": use_tumblr
+"src/api.cmx": for-pack(Tumblr)
+"src/auth.cmx": for-pack(Tumblr)
+"src/csv_util.cmx": for-pack(Tumblr)
+"src/json_util.cmx": for-pack(Tumblr)
+"src/types.cmx": for-pack(Tumblr)
+<src/*.ml{,i}>: pkg_calendar
+<src/*.ml{,i}>: pkg_core
+<src/*.ml{,i}>: pkg_csv
+<src/*.ml{,i}>: pkg_lwt
+<src/*.ml{,i}>: pkg_lwt.syntax
+<src/*.ml{,i}>: pkg_meta_conv
+<src/*.ml{,i}>: pkg_meta_conv.syntax
+<src/*.ml{,i}>: pkg_sociaml-oauth-client.v1_0a
+<src/*.ml{,i}>: pkg_tiny_json
+<src/*.ml{,i}>: pkg_tiny_json_conv
+<src/*.ml{,i}>: pkg_uri
+# OASIS_STOP
+<**/*.ml{,i}>: syntax_camlp4o
+<**/*.ml{,i}>: thread
+<**/*.native>: thread
