@@ -1,4 +1,4 @@
-open Core.Std
+open Core_kernel.Std
 
 exception Conv_exception of Json_conv.target Meta_conv.Error.t
 

@@ -27,7 +27,7 @@ module Nullable_string = Nullable(
 
 module Lookup = struct
   
-  open Core.Std
+  open Core_kernel.Std
   
   type t = {
     keys : string list;
@@ -67,7 +67,7 @@ end
 module Calendar = struct
   
   open CalendarLib
-  open Core.Std
+  open Core_kernel.Std
   
   type t = Calendar.t
   

@@ -1,13 +1,13 @@
 # OASIS_START
-# DO NOT EDIT (digest: a41c4a55d528a432f298711b48413cdb)
-version = "0.1.0"
+# DO NOT EDIT (digest: 3795f71f3bb17e24db73a823f2327bcb)
+version = "0.2.0"
 description = "Tumblr API Client Library for OCaml"
 requires =
-"calendar core csv lwt lwt.syntax meta_conv meta_conv.syntax sociaml-oauth-client.v1_0a tiny_json tiny_json_conv uri"
-archive(byte) = "tumblr.cma"
-archive(byte, plugin) = "tumblr.cma"
-archive(native) = "tumblr.cmxa"
-archive(native, plugin) = "tumblr.cmxs"
-exists_if = "tumblr.cma"
+"calendar core_kernel csv lwt lwt.syntax meta_conv meta_conv.syntax sociaml_oauth_client.v1_0a tiny_json tiny_json_conv uri"
+archive(byte) = "sociaml_tumblr_api.cma"
+archive(byte, plugin) = "sociaml_tumblr_api.cma"
+archive(native) = "sociaml_tumblr_api.cmxa"
+archive(native, plugin) = "sociaml_tumblr_api.cmxs"
+exists_if = "sociaml_tumblr_api.cma"
 # OASIS_STOP
 

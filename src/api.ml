@@ -16,7 +16,7 @@ end
 
 module type S = sig
   
-  module Client : Oauth_client_v1_0a.Client.S
+  module Client : Sociaml_oauth_client_v1_0a.Client.S
   
   type error = 
     | Parameter_error of string * string
@@ -39,7 +39,7 @@ module type S = sig
     
       val fetch : 
           basename : string ->  
-          (response_envelope, error) Core.Result.t Lwt.t
+          (response_envelope, error) Core_kernel.Result.t Lwt.t
     
     end
     
@@ -66,7 +66,7 @@ module type S = sig
           ?size : size ->
           basename : string ->
           unit ->
-          (response_envelope, error) Core.Result.t Lwt.t
+          (response_envelope, error) Core_kernel.Result.t Lwt.t
       
     end
     
@@ -84,7 +84,7 @@ module type S = sig
           ?offset : int -> 
           basename : string ->
           unit ->  
-          (response_envelope, error) Core.Result.t Lwt.t
+          (response_envelope, error) Core_kernel.Result.t Lwt.t
     
     end
     
@@ -106,7 +106,7 @@ module type S = sig
           ?offset : int -> 
           basename : string ->
           unit ->  
-          (response_envelope, error) Core.Result.t Lwt.t
+          (response_envelope, error) Core_kernel.Result.t Lwt.t
     
     end
     
@@ -126,7 +126,7 @@ module type S = sig
             ?filter : filter ->
             basename : string ->
             unit ->  
-            (response_envelope, error) Core.Result.t Lwt.t
+            (response_envelope, error) Core_kernel.Result.t Lwt.t
       
       end
       
@@ -143,7 +143,7 @@ module type S = sig
             ?filter : filter ->
             basename : string ->
             unit ->  
-            (response_envelope, error) Core.Result.t Lwt.t
+            (response_envelope, error) Core_kernel.Result.t Lwt.t
       
       end
       
@@ -160,7 +160,7 @@ module type S = sig
             ?filter : filter ->
             basename : string ->
             unit ->  
-            (response_envelope, error) Core.Result.t Lwt.t
+            (response_envelope, error) Core_kernel.Result.t Lwt.t
       
       end
       
@@ -183,7 +183,7 @@ module type S = sig
           ?filter : filter ->
           basename : string ->
           unit ->  
-          (response_envelope, error) Core.Result.t Lwt.t
+          (response_envelope, error) Core_kernel.Result.t Lwt.t
     
     end
     
@@ -203,7 +203,7 @@ module type S = sig
             ?format : Types.Post_format.t ->
             ?slug : string ->
             unit ->
-            (unit, error) Core.Result.t Lwt.t
+            (unit, error) Core_kernel.Result.t Lwt.t
             
       end    
       
@@ -226,7 +226,7 @@ module type S = sig
             ?format : Types.Post_format.t ->
             ?slug : string ->
             unit ->
-            (unit, error) Core.Result.t Lwt.t
+            (unit, error) Core_kernel.Result.t Lwt.t
             
       end
       
@@ -244,7 +244,7 @@ module type S = sig
             ?format : Types.Post_format.t ->
             ?slug : string ->
             unit ->
-            (unit, error) Core.Result.t Lwt.t
+            (unit, error) Core_kernel.Result.t Lwt.t
             
       end
       
@@ -263,7 +263,7 @@ module type S = sig
             ?format : Types.Post_format.t ->
             ?slug : string ->
             unit ->
-            (unit, error) Core.Result.t Lwt.t
+            (unit, error) Core_kernel.Result.t Lwt.t
             
       end
       
@@ -281,7 +281,7 @@ module type S = sig
             ?format : Types.Post_format.t ->
             ?slug : string ->
             unit ->
-            (unit, error) Core.Result.t Lwt.t
+            (unit, error) Core_kernel.Result.t Lwt.t
             
       end    
       
@@ -303,7 +303,7 @@ module type S = sig
             ?format : Types.Post_format.t ->
             ?slug : string ->
             unit ->
-            (unit, error) Core.Result.t Lwt.t
+            (unit, error) Core_kernel.Result.t Lwt.t
             
       end    
       
@@ -325,7 +325,7 @@ module type S = sig
             ?format : Types.Post_format.t ->
             ?slug : string ->
             unit ->
-            (unit, error) Core.Result.t Lwt.t
+            (unit, error) Core_kernel.Result.t Lwt.t
             
       end    
       
@@ -337,7 +337,7 @@ module type S = sig
             reblog_key : int ->
             basename : string ->
             unit ->
-            (unit, error) Core.Result.t Lwt.t
+            (unit, error) Core_kernel.Result.t Lwt.t
             
       end    
       
@@ -346,7 +346,7 @@ module type S = sig
         val delete : 
             id : int ->
             basename : string ->
-            (unit, error) Core.Result.t Lwt.t
+            (unit, error) Core_kernel.Result.t Lwt.t
             
       end
       
@@ -364,7 +364,7 @@ module type S = sig
       
       include Endpoint with type t := response
       
-      val fetch : unit -> (response_envelope, error) Core.Result.t Lwt.t
+      val fetch : unit -> (response_envelope, error) Core_kernel.Result.t Lwt.t
       
     end
     
@@ -384,7 +384,7 @@ module type S = sig
           ?reblog_info : bool ->
           ?notes_info : bool ->
           unit ->
-          (response_envelope, error) Core.Result.t Lwt.t
+          (response_envelope, error) Core_kernel.Result.t Lwt.t
       
     end
     
@@ -401,7 +401,7 @@ module type S = sig
           ?limit : int -> 
           ?offset : int -> 
           unit -> 
-          (response_envelope, error) Core.Result.t Lwt.t 
+          (response_envelope, error) Core_kernel.Result.t Lwt.t 
           
     end
     
@@ -418,31 +418,31 @@ module type S = sig
           ?limit : int -> 
           ?offset : int -> 
           unit -> 
-          (response_envelope, error) Core.Result.t Lwt.t 
+          (response_envelope, error) Core_kernel.Result.t Lwt.t 
           
     end
     
     module Follow : sig
 
-      val follow : url : Uri.t -> (unit, error) Core.Result.t Lwt.t     
+      val follow : url : Uri.t -> (unit, error) Core_kernel.Result.t Lwt.t     
       
     end
     
     module Unfollow : sig
 
-      val unfollow : url : Uri.t -> (unit, error) Core.Result.t Lwt.t     
+      val unfollow : url : Uri.t -> (unit, error) Core_kernel.Result.t Lwt.t     
       
     end
     
     module Like : sig
       
-      val like : id : int -> reblog_key : string -> (unit, error) Core.Result.t Lwt.t
+      val like : id : int -> reblog_key : string -> (unit, error) Core_kernel.Result.t Lwt.t
       
     end
     
     module Unlike : sig
       
-      val unlike : id : int -> reblog_key : string -> (unit, error) Core.Result.t Lwt.t
+      val unlike : id : int -> reblog_key : string -> (unit, error) Core_kernel.Result.t Lwt.t
       
     end
     
@@ -460,7 +460,7 @@ module type S = sig
         ?filter : filter -> 
         tag : string ->
         unit -> 
-        (response_envelope, error) Core.Result.t Lwt.t
+        (response_envelope, error) Core_kernel.Result.t Lwt.t
     
   end
 
@@ -471,10 +471,10 @@ open Meta_conv.Open
 open Json_conv
 open Tiny_json
 
-module R = Core.Result
+module R = Core_kernel.Result
 
 module Make 
-    (Client : Oauth_client_v1_0a.Client.S)
+    (Client : Sociaml_oauth_client_v1_0a.Client.S)
     (AT : sig val access_token : Client.access_token end) = struct
         
   module Client = Client
@@ -544,7 +544,7 @@ module Make
   end
   
   let filter_optional_params =
-    let open Core.Std in
+    let open Core_kernel.Std in
     List.fold ~init:[] ~f:(fun acc (k, v, f) -> match v with
       | Some v' -> List.append acc [(k, f v')]
       | None -> acc)
@@ -613,7 +613,7 @@ module Make
       include Make_Endpoint(struct type r = response with conv(json) end)
     
       let fetch ?limit ?offset ~basename () =
-        let open Core.Std in
+        let open Core_kernel.Std in
         let params = filter_optional_params 
             [("limit", limit, Int.to_string); ("offset", offset, Int.to_string)] |> 
                 List.append [("api_key", AT.access_token.Client.consumer_key)]            
@@ -636,7 +636,7 @@ module Make
       include Make_Endpoint(struct type r = response with conv(json) end)
     
       let fetch ?limit ?offset ~basename () =
-        let open Core.Std in
+        let open Core_kernel.Std in
         let params = filter_optional_params 
             [("limit", limit, Int.to_string); ("offset", offset, Int.to_string)]     
         in
@@ -655,7 +655,7 @@ module Make
         include Make_Endpoint(struct type r = response with conv(json) end)
       
         let fetch ?limit ?offset ?filter:(filter:filter option) ~basename () =
-          let open Core.Std in
+          let open Core_kernel.Std in
           let open Types.Post_type in
           let params = filter_optional_params [
               ("limit", limit, Int.to_string);
@@ -676,7 +676,7 @@ module Make
         include Make_Endpoint(struct type r = response with conv(json) end)
       
         let fetch ?before_id ?filter:(filter:filter option) ~basename () =
-          let open Core.Std in
+          let open Core_kernel.Std in
           let open Types.Post_type in
           let params = filter_optional_params [
               ("before_id", before_id, Int.to_string)] |> 
@@ -696,7 +696,7 @@ module Make
         include Make_Endpoint(struct type r = response with conv(json) end)
       
         let fetch ?offset ?filter:(filter:filter option) ~basename () =
-          let open Core.Std in
+          let open Core_kernel.Std in
           let open Types.Post_type in
           let params = filter_optional_params [
               ("offset", offset, Int.to_string)] |> 
@@ -717,7 +717,7 @@ module Make
     
       let fetch ?type':(type':Types.Post_type.t option) ?id ?tag ?limit ?offset 
           ?reblog_info ?notes_info ?filter:(filter:filter option) ~basename () =
-        let open Core.Std in
+        let open Core_kernel.Std in
         let open Types.Post_type in
         let params = filter_optional_params [
             ("id", id, Int.to_string);
@@ -748,7 +748,7 @@ module Make
     module Post = struct
       
       open CalendarLib
-      open Core.Std
+      open Core_kernel.Std
       open Types.Auto_Tweet
       open Types.Post_format
       open Types.State
@@ -767,7 +767,7 @@ module Make
               let out = new Csv_util.buffer_out_channel in
               let out_obj = Csv.to_out_obj ~separator:',' (out :> Csv.out_obj_channel) in
               Csv.output_record out_obj l;
-              out#contents () |> Core.Std.String.strip);]) |>
+              out#contents () |> Core_kernel.Std.String.strip);]) |>
             List.append (filter_optional_params [("tweet", tweet, function
               | Off -> "off"
               | On s -> s);]) |>
@@ -960,7 +960,7 @@ module Make
       
       let fetch ?limit ?offset ?type':(type': Types.Post_type.t option) 
           ?since_id ?reblog_info ?notes_info () =
-        let open Core.Std in
+        let open Core_kernel.Std in
         let open Types.Post_type in
         let params = filter_optional_params [
             ("offset", offset, Int.to_string);
@@ -994,7 +994,7 @@ module Make
       include Make_Endpoint(struct type r = response with conv(json) end)
       
       let fetch ?limit ?offset () =
-        let open Core.Std in
+        let open Core_kernel.Std in
         let params = filter_optional_params 
             [("limit", limit, Int.to_string); ("offset", offset, Int.to_string)]
         in
@@ -1012,7 +1012,7 @@ module Make
       include Make_Endpoint(struct type r = response with conv(json) end)
       
       let fetch ?limit ?offset () =
-        let open Core.Std in
+        let open Core_kernel.Std in
         let params = filter_optional_params 
             [("limit", limit, Int.to_string); ("offset", offset, Int.to_string)]
         in
@@ -1034,7 +1034,7 @@ module Make
     
     module Like = struct
       
-      open Core.Std
+      open Core_kernel.Std
       
       let like ~id ~reblog_key =
         authorized_post ~body_parameters:[
@@ -1045,7 +1045,7 @@ module Make
     
     module Unlike = struct
       
-      open Core.Std
+      open Core_kernel.Std
       
       let unlike ~id ~reblog_key =
         authorized_post ~body_parameters:[
@@ -1063,7 +1063,7 @@ module Make
     include Make_Endpoint(struct type r = response with conv(json) end)
     
     let fetch ?before ?limit ?filter ~tag () =
-        let open Core.Std in
+        let open Core_kernel.Std in
         let params = filter_optional_params [
             ("before", before, (fun c ->
                 CalendarLib.Calendar.to_unixfloat c |> Float.to_int |> Int.to_string))] |>

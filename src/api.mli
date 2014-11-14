@@ -16,7 +16,7 @@ end
 
 module type S = sig
   
-  module Client : Oauth_client_v1_0a.Client.S
+  module Client : Sociaml_oauth_client_v1_0a.Client.S
   
   type error = 
     | Parameter_error of string * string
@@ -39,7 +39,7 @@ module type S = sig
     
       val fetch : 
           basename : string ->  
-          (response_envelope, error) Core.Result.t Lwt.t
+          (response_envelope, error) Core_kernel.Result.t Lwt.t
     
     end
     
@@ -66,7 +66,7 @@ module type S = sig
           ?size : size ->
           basename : string ->
           unit ->
-          (response_envelope, error) Core.Result.t Lwt.t
+          (response_envelope, error) Core_kernel.Result.t Lwt.t
       
     end
     
@@ -84,7 +84,7 @@ module type S = sig
           ?offset : int -> 
           basename : string ->
           unit ->  
-          (response_envelope, error) Core.Result.t Lwt.t
+          (response_envelope, error) Core_kernel.Result.t Lwt.t
     
     end
     
@@ -106,7 +106,7 @@ module type S = sig
           ?offset : int -> 
           basename : string ->
           unit ->  
-          (response_envelope, error) Core.Result.t Lwt.t
+          (response_envelope, error) Core_kernel.Result.t Lwt.t
     
     end
     
@@ -126,7 +126,7 @@ module type S = sig
             ?filter : filter ->
             basename : string ->
             unit ->  
-            (response_envelope, error) Core.Result.t Lwt.t
+            (response_envelope, error) Core_kernel.Result.t Lwt.t
       
       end
       
@@ -143,7 +143,7 @@ module type S = sig
             ?filter : filter ->
             basename : string ->
             unit ->  
-            (response_envelope, error) Core.Result.t Lwt.t
+            (response_envelope, error) Core_kernel.Result.t Lwt.t
       
       end
       
@@ -160,7 +160,7 @@ module type S = sig
             ?filter : filter ->
             basename : string ->
             unit ->  
-            (response_envelope, error) Core.Result.t Lwt.t
+            (response_envelope, error) Core_kernel.Result.t Lwt.t
       
       end
       
@@ -183,7 +183,7 @@ module type S = sig
           ?filter : filter ->
           basename : string ->
           unit ->  
-          (response_envelope, error) Core.Result.t Lwt.t
+          (response_envelope, error) Core_kernel.Result.t Lwt.t
     
     end
     
@@ -203,7 +203,7 @@ module type S = sig
             ?format : Types.Post_format.t ->
             ?slug : string ->
             unit ->
-            (unit, error) Core.Result.t Lwt.t
+            (unit, error) Core_kernel.Result.t Lwt.t
             
       end    
       
@@ -226,7 +226,7 @@ module type S = sig
             ?format : Types.Post_format.t ->
             ?slug : string ->
             unit ->
-            (unit, error) Core.Result.t Lwt.t
+            (unit, error) Core_kernel.Result.t Lwt.t
             
       end
       
@@ -244,7 +244,7 @@ module type S = sig
             ?format : Types.Post_format.t ->
             ?slug : string ->
             unit ->
-            (unit, error) Core.Result.t Lwt.t
+            (unit, error) Core_kernel.Result.t Lwt.t
             
       end
       
@@ -263,7 +263,7 @@ module type S = sig
             ?format : Types.Post_format.t ->
             ?slug : string ->
             unit ->
-            (unit, error) Core.Result.t Lwt.t
+            (unit, error) Core_kernel.Result.t Lwt.t
             
       end
       
@@ -281,7 +281,7 @@ module type S = sig
             ?format : Types.Post_format.t ->
             ?slug : string ->
             unit ->
-            (unit, error) Core.Result.t Lwt.t
+            (unit, error) Core_kernel.Result.t Lwt.t
             
       end    
       
@@ -303,7 +303,7 @@ module type S = sig
             ?format : Types.Post_format.t ->
             ?slug : string ->
             unit ->
-            (unit, error) Core.Result.t Lwt.t
+            (unit, error) Core_kernel.Result.t Lwt.t
             
       end    
       
@@ -325,7 +325,7 @@ module type S = sig
             ?format : Types.Post_format.t ->
             ?slug : string ->
             unit ->
-            (unit, error) Core.Result.t Lwt.t
+            (unit, error) Core_kernel.Result.t Lwt.t
             
       end    
       
@@ -337,7 +337,7 @@ module type S = sig
             reblog_key : int ->
             basename : string ->
             unit ->
-            (unit, error) Core.Result.t Lwt.t
+            (unit, error) Core_kernel.Result.t Lwt.t
             
       end    
       
@@ -346,7 +346,7 @@ module type S = sig
         val delete : 
             id : int ->
             basename : string ->
-            (unit, error) Core.Result.t Lwt.t
+            (unit, error) Core_kernel.Result.t Lwt.t
             
       end
       
@@ -364,7 +364,7 @@ module type S = sig
       
       include Endpoint with type t := response
       
-      val fetch : unit -> (response_envelope, error) Core.Result.t Lwt.t
+      val fetch : unit -> (response_envelope, error) Core_kernel.Result.t Lwt.t
       
     end
     
@@ -384,7 +384,7 @@ module type S = sig
           ?reblog_info : bool ->
           ?notes_info : bool ->
           unit ->
-          (response_envelope, error) Core.Result.t Lwt.t
+          (response_envelope, error) Core_kernel.Result.t Lwt.t
       
     end
     
@@ -401,7 +401,7 @@ module type S = sig
           ?limit : int -> 
           ?offset : int -> 
           unit -> 
-          (response_envelope, error) Core.Result.t Lwt.t 
+          (response_envelope, error) Core_kernel.Result.t Lwt.t 
           
     end
     
@@ -418,31 +418,31 @@ module type S = sig
           ?limit : int -> 
           ?offset : int -> 
           unit -> 
-          (response_envelope, error) Core.Result.t Lwt.t 
+          (response_envelope, error) Core_kernel.Result.t Lwt.t 
           
     end
     
     module Follow : sig
 
-      val follow : url : Uri.t -> (unit, error) Core.Result.t Lwt.t     
+      val follow : url : Uri.t -> (unit, error) Core_kernel.Result.t Lwt.t     
       
     end
     
     module Unfollow : sig
 
-      val unfollow : url : Uri.t -> (unit, error) Core.Result.t Lwt.t     
+      val unfollow : url : Uri.t -> (unit, error) Core_kernel.Result.t Lwt.t     
       
     end
     
     module Like : sig
       
-      val like : id : int -> reblog_key : string -> (unit, error) Core.Result.t Lwt.t
+      val like : id : int -> reblog_key : string -> (unit, error) Core_kernel.Result.t Lwt.t
       
     end
     
     module Unlike : sig
       
-      val unlike : id : int -> reblog_key : string -> (unit, error) Core.Result.t Lwt.t
+      val unlike : id : int -> reblog_key : string -> (unit, error) Core_kernel.Result.t Lwt.t
       
     end
     
@@ -460,12 +460,12 @@ module type S = sig
         ?filter : filter -> 
         tag : string ->
         unit -> 
-        (response_envelope, error) Core.Result.t Lwt.t
+        (response_envelope, error) Core_kernel.Result.t Lwt.t
     
   end
 
 end
 
 module Make 
-    (Client : Oauth_client_v1_0a.Client.S)
+    (Client : Sociaml_oauth_client_v1_0a.Client.S)
     (AT : sig val access_token : Client.access_token end) : S

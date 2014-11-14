@@ -14,11 +14,11 @@ build: [
 ]
 remove: [
   [make "uninstall"]
-  ["ocamlfind" "remove" "${library(tumblr).findlibname}"]
+  ["ocamlfind" "remove" "${library(sociaml_tumblr_api).findlibname}"]
 ]
 depends: [
   "oasis"
-  "core"
+  "core_kernel"
   "lwt"
   "meta_conv"
   "tiny_json"
