@@ -2,6 +2,7 @@
 > An OCaml library for accessing the Tumblr API.
 
 **Development on this project has ceased**
+
 This project provided an OCaml library for access the [Tumblr API](http://www.tumblr.com/docs/en/api/v2). It should probably be considered out of data and most likely does not work with the latest version of the Tumblr API.
 
 ## Installation
